@@ -17,7 +17,7 @@ const Login_form =() => {
         body: JSON.stringify({ username, password }),
         })
         .then((r) => r.json())
-        .then((user) => console.log('goods'));
+        .then((user) => console.log(user));
     }
 
     return (
