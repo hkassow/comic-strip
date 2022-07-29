@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
-    def index
-        session[:session_hello] ||= "World"
-        cookies[:cookies_hello] ||= "World"
-        render json: { session: session, cookies: cookies.to_hash }
+    def show
+      user = User.find_by(id: session[:user_id])
+      if user
+        render json: user
+      else
+        render json: { error: "Not authorized" }, status: :unauthorized
+      end
     end
     def create
         user = User.create(user_params)
