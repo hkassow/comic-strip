@@ -1,8 +1,11 @@
 import React from "react";
+import { Grid } from "semantic-ui-react";
 
 function Comics(){
     return (
-        <h1> comics </h1>
+        <Grid>
+            
+        </Grid>
     )
 }
 

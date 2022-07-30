@@ -18,7 +18,7 @@ function App() {
       }
     });
   }, []);
-
+  
   // if (user) {
   //   return <h2>Welcome, {user.username}!</h2>;
   // } else {
@@ -26,8 +26,7 @@ function App() {
   // }
   return (
     <BrowserRouter>
-      {user?<h2>Welcome, {user.username}!</h2> : <Login_form onLogin={setUser} />}
-      <NavBar/>
+      <NavBar onLogin={setUser}/>
       <Routes>
         <Route path="/" element={<Home/>}> </Route>
         <Route path="/comics" element={<Comics/>}> </Route>

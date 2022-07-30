@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Form, Segment } from 'semantic-ui-react'
 import { useState } from "react"
 
-const Login_form =() => {
+const Login_form =({onLogin}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
