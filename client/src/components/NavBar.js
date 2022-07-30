@@ -1,26 +1,32 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Button, Menu, MenuItem } from "semantic-ui-react";
+import { Button, Grid, GridColumn, Menu, MenuItem } from "semantic-ui-react";
 import Login_form from "./Login_form";
 import { useState } from "react"
 
 function NavBar ({onLogin}) {
     const [loginToggle, changeLoginToggle] = useState(false)
-    const handleClick = (e) => {
-        
+    const handleToggle = () => {
+        changeLoginToggle(!loginToggle)
     }
     return (
-        <Menu inverted widths='equal' size='massive'>
-            <Menu.Menu width ={3} position="left"  style={{'padding-left': 100}}>
-                <MenuItem as={NavLink} exact to='/' activeStyle={{color: "red"}}>Home</MenuItem>
-                <MenuItem as={NavLink} to='/comics' activeStyle={{color: "red"}}>Comics</MenuItem>
-                <MenuItem as={NavLink} to='/members' activeStyle={{color: "red"}}>Members</MenuItem>
-            </Menu.Menu>
-            <Menu.Menu fluid position="right" style={{'padding-right': 100}}>
-                {!loginToggle?<MenuItem onClick={changeLoginToggle}>Login</MenuItem> :
-                <MenuItem fluid as={Login_form} onLogin={onLogin}> </MenuItem>}
-            </Menu.Menu>
-        </Menu>
+        <Grid columns='equal'>
+            <Grid.Column>
+            </Grid.Column>
+            <GridColumn width={8}>
+                <Menu fluid widths={3}inverted>
+                    <MenuItem as={NavLink} to='/' activestyle={{color: "red"}}>Home</MenuItem>
+                    <MenuItem as={NavLink} to='/comics' activestyle={{color: "red"}}>Comics</MenuItem>
+                    <MenuItem as={NavLink} to='/members' activestyle={{color: "red"}}>Members</MenuItem>
+                </Menu>
+            </GridColumn>
+            <GridColumn>
+                <Menu inverted>
+                    {!loginToggle?<MenuItem onClick={handleToggle}>Login</MenuItem> :
+                    <MenuItem fluid as={Login_form} handleToggle={handleToggle} onLogin={onLogin}> </MenuItem>}
+                </Menu>
+            </GridColumn>
+        </Grid>
     )  
 }
 export default NavBar
