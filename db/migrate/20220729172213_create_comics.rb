@@ -1,6 +1,7 @@
 class CreateComics < ActiveRecord::Migration[6.1]
   def change
     create_table :comics do |t|
+      t.string :name
       t.string :author
       t.string :illustrator
       t.string :company
@@ -9,7 +10,6 @@ class CreateComics < ActiveRecord::Migration[6.1]
       t.integer :release_year
       t.boolean :ongoing
       t.integer :page_count
-      t.integer :average_rating
 
       t.timestamps
     end
