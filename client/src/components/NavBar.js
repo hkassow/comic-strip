@@ -10,14 +10,14 @@ function NavBar ({onLogin}) {
         changeLoginToggle(!loginToggle)
     }
     return (
-        <Grid columns='equal'>
+        <Grid size={'massive'} padding={100} columns='equal'>
             <Grid.Column>
             </Grid.Column>
             <GridColumn width={8}>
                 <Menu fluid widths={3}inverted>
-                    <MenuItem as={NavLink} to='/' activestyle={{color: "red"}}>Home</MenuItem>
-                    <MenuItem as={NavLink} to='/comics' activestyle={{color: "red"}}>Comics</MenuItem>
-                    <MenuItem as={NavLink} to='/members' activestyle={{color: "red"}}>Members</MenuItem>
+                    <MenuItem as={NavLink} to='/'>Home</MenuItem>
+                    <MenuItem as={NavLink} to='/comics'>Comics</MenuItem>
+                    <MenuItem as={NavLink} to='/members'>Members</MenuItem>
                 </Menu>
             </GridColumn>
             <GridColumn>
