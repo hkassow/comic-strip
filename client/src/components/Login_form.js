@@ -21,7 +21,7 @@ const Login_form =({onLogin, handleToggle }) => {
     }
 
     return (
-        <Segment inverted>
+        <Segment fluid inverted>
           <Form inverted onSubmit={handleSubmit}>
             <Form.Group widths='equal'>
               <Form.Input fluid label='Username' placeholder='Username' onChange={(e) => setUsername(e.target.value)}/>

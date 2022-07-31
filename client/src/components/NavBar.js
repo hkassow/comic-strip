@@ -20,11 +20,17 @@ function NavBar ({onLogin}) {
                     <MenuItem as={NavLink} to='/members'>Members</MenuItem>
                 </Menu>
             </GridColumn>
-            <GridColumn>
-                <Menu inverted>
+            <GridColumn fluid >
+                {!loginToggle?
+                <Menu inverted fluid widths={2}>
+                    <MenuItem onClick={handleToggle}>Login</MenuItem>
+                    <MenuItem >Create account</MenuItem>
+                </Menu>:
+                <Login_form handleToggle={handleToggle} onLogin={onLogin}/>}
+                {/* <Menu width={1} inverted>
                     {!loginToggle?<MenuItem onClick={handleToggle}>Login</MenuItem> :
                     <MenuItem fluid as={Login_form} handleToggle={handleToggle} onLogin={onLogin}> </MenuItem>}
-                </Menu>
+                </Menu> */}
             </GridColumn>
         </Grid>
     )  
