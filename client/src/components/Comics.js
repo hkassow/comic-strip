@@ -4,7 +4,7 @@ import { Segment, Card, Container } from "semantic-ui-react";
 function Comics(){
     return (
         <>
-        <Segment style={{padding: 100}}textSize='huge' textAlign='center' size='massive'>filter or title of section</Segment>
+        <Segment style={{padding: 100}} textAlign='center' size='massive'>filter or title of section</Segment>
         <Container>
             <Card.Group itemsPerRow={4}>
                 <Card color='red'>Card</Card>
