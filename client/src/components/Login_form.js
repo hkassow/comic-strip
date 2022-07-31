@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Form, Segment } from 'semantic-ui-react'
 import { useState } from "react"
 
-const Login_form =() => {
+const Login_form =({onLogin, handleToggle }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -28,6 +28,7 @@ const Login_form =() => {
               <Form.Input fluid label='Password' type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)}/>
             </Form.Group>
             <Button type='submit'>Submit</Button>
+            <Button onClick={handleToggle}>x</Button>
           </Form>
         </Segment>
     )
