@@ -1,10 +1,13 @@
 import React from "react";
-import { Segment, Card, Container, Grid, GridRow, GridColumn } from "semantic-ui-react";
+import { Segment, Card, Container, Grid, Divider, Image } from "semantic-ui-react";
+import Member_List_Style from "./Member_List_Style";
 
 function Members(){
     return (
-        <>
-        <Segment style={{padding: 100}} textAlign='center' verticalalign='bottom' size='massive'>Comic members</Segment>
+    <>
+        <Segment>
+            <Image src='/DC_Characters.webp' centered/>
+        </Segment>
         <Container>
             <Card.Group itemsPerRow={4}>
                 <Card color='red'>Card</Card>
@@ -12,16 +15,17 @@ function Members(){
                 <Card color='red'>Card</Card>
                 <Card color='red'>Card</Card>
             </Card.Group>
+            <Divider textalign='center' style={{padding: 50,"textAlign": "center"}}>
+                filter area?
+            </Divider>
+            <Grid  columns={6}>
+                <Member_List_Style/>
+                <Member_List_Style/>
+                <Member_List_Style/>
+                <Member_List_Style/>
+            </Grid>
         </Container>
-        <Grid style={{padding: 100}} columns={4}>
-            <GridRow style={{borderTop: "2px solid black", borderBottom:"2px solid black", color:'white'}} >
-                <GridColumn >member name</GridColumn>
-                <GridColumn>reviews</GridColumn>
-                <GridColumn>lists</GridColumn>
-                <GridColumn>favorites</GridColumn>
-            </GridRow>
-        </Grid>
-        </>
+    </>
     )
 }
 

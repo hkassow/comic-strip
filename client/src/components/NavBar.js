@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Button, Grid, GridColumn, Menu, MenuItem } from "semantic-ui-react";
-import Login_form from "./Login_form";
+import { Button, Grid, GridColumn, GridRow, Menu, MenuItem } from "semantic-ui-react";
+import Login_Form from "./Login_Form";
 import { useState } from "react"
 
 function NavBar ({onLogin}) {
@@ -11,27 +11,29 @@ function NavBar ({onLogin}) {
     }
     return (
         <Grid size={'massive'} padding={100} columns='equal'>
+            <GridRow>
             <Grid.Column>
             </Grid.Column>
             <GridColumn width={8}>
-                <Menu fluid widths={3}inverted>
+                <Menu  widths={3}inverted>
                     <MenuItem as={NavLink} to='/'>Home</MenuItem>
                     <MenuItem as={NavLink} to='/comics'>Comics</MenuItem>
                     <MenuItem as={NavLink} to='/members'>Members</MenuItem>
                 </Menu>
             </GridColumn>
-            <GridColumn fluid >
+            <GridColumn  >
                 {!loginToggle?
-                <Menu inverted fluid widths={2}>
+                <Menu inverted widths={2}>
                     <MenuItem onClick={handleToggle}>Login</MenuItem>
                     <MenuItem >Create account</MenuItem>
                 </Menu>:
-                <Login_form handleToggle={handleToggle} onLogin={onLogin}/>}
+                <Login_Form handleToggle={handleToggle} onLogin={onLogin}/>}
                 {/* <Menu width={1} inverted>
                     {!loginToggle?<MenuItem onClick={handleToggle}>Login</MenuItem> :
                     <MenuItem fluid as={Login_form} handleToggle={handleToggle} onLogin={onLogin}> </MenuItem>}
                 </Menu> */}
             </GridColumn>
+            </GridRow>
         </Grid>
     )  
 }
