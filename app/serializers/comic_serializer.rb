@@ -4,6 +4,7 @@ class ComicSerializer < ActiveModel::Serializer
 
   def average_rating
     #average of reviews.star
+    self.object.reviews.average(:star)
   end
 
 end

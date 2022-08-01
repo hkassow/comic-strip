@@ -24,3 +24,5 @@ function ComicCard( { comic }) {
         </Card>
     )
 }
+
+export default ComicCard
