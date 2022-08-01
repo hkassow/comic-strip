@@ -4,8 +4,11 @@ import { Button, Card, Icon, Image } from 'semantic-ui-react'
 function ComicCard( { comic }) {
 
     function stars() {
-        const star = <Icon name="star outline" />
-        return comic.average_rating * star
+        const array = []
+        for ( let i = 0; i < comic.average_rating; i++) {
+            array.push(<Icon name="star outline" />)
+        }
+        return array
     }
 
     return (
@@ -21,7 +24,7 @@ function ComicCard( { comic }) {
                     {comic.synopsis}
                 </Card.Description>
                 <div className='stars in a row'>
-                    {stars}
+                    {stars()}
                 </div>
             </Card.Content>
             <Button >Read Reviews</Button>

@@ -5,8 +5,11 @@ function ReviewCard( { review }) {
 
 
     function stars() {
-        const star = <Icon name="star outline" />
-        return review.star * star
+        const array = []
+        for ( let i = 0; i < review.star; i++) {
+            array.push(<Icon name="star outline" />)
+        }
+        return array
     }
 
     return (
@@ -14,7 +17,7 @@ function ReviewCard( { review }) {
             <Card.Content>
                 <Card.Header>{review.user.username}</Card.Header>
                 <div className='stars in a row'>
-                    {stars}
+                    {stars()}
                 </div>
                 <Card.Description>
                     {review.comment}
