@@ -3,6 +3,10 @@ import { Button, Card, Icon, Image } from 'semantic-ui-react'
 
 function ComicCard( { comic }) {
 
+    function stars() {
+        const star = <Icon name="star outline" />
+        return comic.average_rating * star
+    }
 
     return (
         <Card>
@@ -16,8 +20,9 @@ function ComicCard( { comic }) {
                 <Card.Description>
                     {comic.synopsis}
                 </Card.Description>
-                {/* Fix, a number of star Icons in a row for the the total of {comic.average_rating} */}
-                {/* <Icon name="star outline" /> */}
+                <div className='stars in a row'>
+                    {stars}
+                </div>
             </Card.Content>
             <Button >Read Reviews</Button>
             <Button >Write Review</Button>
