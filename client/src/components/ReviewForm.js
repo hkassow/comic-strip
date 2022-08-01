@@ -40,35 +40,35 @@ function ReviewForm( { comic, user } )  {
             <label>Rating</label>
             <Form.Field 
                 control={Radio}
-                label='One'
+                label='One Star'
                 value='1'
                 checked={value === '1'}
                 onChange={(e) => setStar('1')}
             />
             <Form.Field 
                 control={Radio}
-                label='Two'
+                label='Two Stars'
                 value='2'
                 checked={value === '2'}
                 onChange={(e) => setStar('2')}
             />
             <Form.Field 
                 control={Radio}
-                label='Three'
+                label='Three Stars'
                 value='3'
                 checked={value === '3'}
                 onChange={(e) => setStar('3')}
             />
             <Form.Field 
                 control={Radio}
-                label='Four'
+                label='Four Stars'
                 value='4'
                 checked={value === '4'}
                 onChange={(e) => setStar('4')}
             />
             <Form.Field 
                 control={Radio}
-                label='Five'
+                label='Five Stars'
                 value='5'
                 checked={value === '5'}
                 onChange={(e) => setStar('5')}
