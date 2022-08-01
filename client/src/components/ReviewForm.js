@@ -27,7 +27,7 @@ function ReviewForm( { comic, user } )  {
         body: JSON.stringify(review),
         })
         .then((r) => r.json())
-        .then((user) => console.log(user));
+        .then((review) => console.log(review));
     }
 
     return (
