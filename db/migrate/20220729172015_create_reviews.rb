@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration[6.1]
       t.integer :user_id
       t.integer :comic_id
       t.integer :star
-      t.string :comment
+      t.text :comment
 
       t.timestamps
     end

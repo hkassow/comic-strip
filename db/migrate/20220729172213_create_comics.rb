@@ -10,7 +10,7 @@ class CreateComics < ActiveRecord::Migration[6.1]
       t.integer :release_year
       t.boolean :ongoing
       t.integer :page_count
-      t.string :synopsis
+      t.text :synopsis
 
       t.timestamps
     end
