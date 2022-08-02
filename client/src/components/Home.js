@@ -1,7 +1,7 @@
 import React from "react";
 import {  Dropdown, Form, Input, Button, Container, Grid, GridRow, GridColumn  } from 'semantic-ui-react'
 import { useState } from "react";
-import ModalShort from "./ModalShort";
+import ModalShort from "./CreateAccountForm";
 import {Modal} from "semantic-ui-react";
 
 function Home ()  {

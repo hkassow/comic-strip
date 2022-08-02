@@ -5,8 +5,9 @@ import Home from './components/Home'
 import Comics from './components/Comics';
 import Members from './components/Members'
 import NavBar from './components/NavBar';
-import ModalShort from './components/ModalShort';
+import ModalShort from './components/CreateAccountForm';
 import { Button } from 'semantic-ui-react';
+import CreateAccountForm from './components/CreateAccountForm';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   const handleClick = () => {
     setOpen(!open)
   }
+  console.log(user)
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -23,7 +25,6 @@ function App() {
       }
     });
   }, []);
-
   // if (user) {
   //   return <h2>Welcome, {user.username}!</h2>;
   // } else {
@@ -31,9 +32,9 @@ function App() {
   // }
   return (
     <>
-    <ModalShort open={open} handleClick={handleClick}/>
+    <CreateAccountForm open={open} handleClick={handleClick}/>
     <BrowserRouter>
-      <NavBar onLogin={setUser} handleClick={handleClick}/>
+      <NavBar user={user} onLogin={setUser} handleClick={handleClick}/>
       <Routes>
         <Route path="/" element={<Home/>}> </Route>
         <Route path="/comics" element={<Comics/>}> </Route>
