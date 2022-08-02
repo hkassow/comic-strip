@@ -91,7 +91,7 @@ Comic.create(name: "Watchmen", author: "Alan Moore", illustrator: "Dave Gibbons"
 
 puts "Creating Reviews..."
 40.times do
-    Review.create(comment: Faker::Fantasy::Tolkien.poem, star_rating: rand(5), user_id: User.all.ids.sample, comic_id: Comic.all.ids.sample)
+    Review.create(comment: Faker::Fantasy::Tolkien.poem, star: rand(5), user_id: User.all.ids.sample, comic_id: Comic.all.ids.sample)
 end
 
 puts "Seeding done :)"

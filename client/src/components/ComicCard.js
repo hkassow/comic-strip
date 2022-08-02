@@ -20,7 +20,7 @@ function ComicCard( { comic, id }) {
     return (
         <Card id={id} onClick={handleClick}>
             <Card.Content>CONTENT</Card.Content>
-            {/* <Image src={comic.cover_illustration} wrapped ui={false} />
+            <Image src={comic.cover_illustration} wrapped ui={false} />
             <Card.Content>
                 <Card.Header>{comic.name}</Card.Header>
                 <Card.Meta>
@@ -33,7 +33,7 @@ function ComicCard( { comic, id }) {
                 <div className='stars in a row'>
                     {stars()}
                 </div>
-            </Card.Content> */}
+            </Card.Content>
         </Card>
     )
 }
