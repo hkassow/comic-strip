@@ -28,7 +28,7 @@ function ComicCard( { comic, id }) {
                     <span>Illustrator: {comic.illustrator}</span>
                 </Card.Meta>
                 <Card.Description>
-                    {comic.synopsis}
+                    {comic.synopsis.slice(0, 99) + "..."}
                 </Card.Description>
                 <div className='stars in a row'>
                     {stars()}
