@@ -1,10 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+puts "Creating Users..."
+10.times do
+    User.create(name: Faker::FunnyName.name, username: Faker::Ancient.god, password: Faker::Color.color_name)
+end
 
 puts "Creating comic series..."
 Comic.create(name: "The Variants", author: "Gail Simone", illustrator: "Phil Noto", company: "Marvel Comics", protagonist: "Jessica Jones", cover_illustration: "https://comicbookroundup.com/img/covers/t/the-variants-(2022)/1_medium.jpg", release_year: 2022, ongoing: true, synopsis: "What would it really be like to meet an alternate version of yourself, another you who had made different choices and lived a completely different life as a result? That's the question facing Jessica Jones, as what seemed like a routine investigation instead has her encountering other incarnations of herself from across the Multiverse. Can Jessica get along with herself? Will she want to kill her other selves? And will seeing the lives she could have led drive her into a self-destructive spiral? This is what happens when you meet...the Variants!")
@@ -91,5 +88,10 @@ Comic.create(name: "Batman: The Dark Knight Returns", author: "Frank Miller", il
 Comic.create(name: "All-Star Superman", author: "Grant Morrison", illustrator: "Frank Quitely", company: "DC Comics", protagonist: "Superman", cover_illustration: "https://comicbookroundup.com/img/covers/a/all-star-superman/1_medium.jpg", release_year: 2005, ongoing: false, synopsis: "DC launches the newest addition to its All Star line of comics — where the industry's top creative talents refine the iconic focus of the world's greatest super-heroes. Writer Grant Morrison (JLA, SEVEN SOLDIERS) and artist Frank Quitely (THE AUTHORITY, New X-Men) — the acclaimed team behind JLA: EARTH 2 — are at it once again, this time to strip down the Man of Steel to his timeless, essential elements. The series kicks off with a 12-issue story arc touching on all the classic aspects of the Superman mythology, starting with a daring rescue of a doomed group of helionauts on the surface of the sun. The massive amounts of solar radiation affect Superman in a way no one could possibly anticipate — except Lex Luthor!")
 
 Comic.create(name: "Watchmen", author: "Alan Moore", illustrator: "Dave Gibbons", company: "DC Comics", protagonist: "The Watchmen", cover_illustration: "https://comicbookroundup.com/img/covers/w/watchmen/1_medium.jpg", release_year: 1985, ongoing: false, synopsis: "Featuring the first appearance of Rorschach, Ozymandias, Dr. Manhattan, Silk Spectre, Nite Owl, and the Comedian! When the Comedian dies, a series of events are set into motion that bring the world ever closer to a deadly threat no one saw coming.")
+
+puts "Creating Reviews..."
+40.times do
+    Review.create(comment: Faker::Fantasy::Tolkien.poem, star_rating: rand(5), user_id: User.all.ids.sample, comic_id: Comic.all.ids.sample)
+end
 
 puts "Seeding done :)"
