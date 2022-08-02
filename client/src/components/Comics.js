@@ -12,7 +12,7 @@ function Comics(){
     }, []);
 
     function displayComics() {
-        const slicedComics = comics.slice(0, 12)
+        const slicedComics = comics.sort((firstItem, secondItem) => firstItem.average_review - secondItem.average_review).slice(0, 12)
         return slicedComics.map((comic) => <ComicCard comic={comic} />)
     }
 
