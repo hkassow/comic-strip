@@ -8,13 +8,13 @@ function Comics(){
     useEffect(() => {
         fetch("http://localhost:4000/comics")
           .then((response) => response.json())
-          .then((data) => console.log(data));
+          .then((data) => setComics(data));
     }, []);
 
-    // function displayComics() {
-    //     const slicedComics = comics.slice(0, 12)
-    //     slicedComics.map((comic) => <ComicCard comic={comic} />)
-    // }
+    function displayComics() {
+        const slicedComics = comics.slice(0, 12)
+        return slicedComics.map((comic) => <ComicCard comic={comic} />)
+    }
 
 
     return (
@@ -22,19 +22,7 @@ function Comics(){
         <Segment style={{padding: 100}} textAlign='center' size='massive'>filter or title of section</Segment>
         <Container>
             <Card.Group itemsPerRow={4}>
-                {/* {displayComics()} */}
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
+                {displayComics()}
             </Card.Group>
         </Container>
         </>
