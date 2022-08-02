@@ -1,13 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Button, Grid, GridColumn, GridRow, Menu, MenuItem } from "semantic-ui-react";
-import Login_Form from "./Login_Form";
+import { Grid, GridColumn, GridRow, Menu, MenuItem, Button } from "semantic-ui-react";
+import LoginForm from "./LoginForm";
 import { useState } from "react"
 
-function NavBar ({onLogin}) {
-    const [loginToggle, changeLoginToggle] = useState(false)
-    const handleToggle = () => {
-        changeLoginToggle(!loginToggle)
+function NavBar ({onLogin, handleClick, user}) {
+    const logout = () => {
+        fetch("/logout", {
+            method: "DELETE",
+        }).then(() => onLogin(null));
     }
     return (
         <Grid size={'massive'} padding={100} columns='equal'>
@@ -21,17 +22,13 @@ function NavBar ({onLogin}) {
                     <MenuItem as={NavLink} to='/members'>Members</MenuItem>
                 </Menu>
             </GridColumn>
-            <GridColumn  >
-                {!loginToggle?
-                <Menu inverted widths={2}>
-                    <MenuItem onClick={handleToggle}>Login</MenuItem>
-                    <MenuItem >Create account</MenuItem>
+            <GridColumn >
+                {user? 
+                <Menu fluid widths={1} backgroundcolor='white'>
+                    <MenuItem onClick={logout}>logout</MenuItem>
                 </Menu>:
-                <Login_Form handleToggle={handleToggle} onLogin={onLogin}/>}
-                {/* <Menu width={1} inverted>
-                    {!loginToggle?<MenuItem onClick={handleToggle}>Login</MenuItem> :
-                    <MenuItem fluid as={Login_form} handleToggle={handleToggle} onLogin={onLogin}> </MenuItem>}
-                </Menu> */}
+                <LoginForm onLogin={onLogin} handleClick={handleClick}/>
+                }
             </GridColumn>
             </GridRow>
         </Grid>
