@@ -1,7 +1,8 @@
 import React from 'react'
-import { Button, Card, Icon, Image } from 'semantic-ui-react'
+import { Button, Card, CardContent, Icon, Image } from 'semantic-ui-react'
+import { useNavigate } from "react-router-dom";
 
-function ComicCard( { comic }) {
+function ComicCard( { comic, id }) {
 
     function stars() {
         const array = []
@@ -10,10 +11,16 @@ function ComicCard( { comic }) {
         }
         return array
     }
+    const navigate = useNavigate();
+    const handleClick = (e) => {
+        navigate(`/comics/${id}`,  { replace: true })
+        console.log(id)
+    }
 
     return (
-        <Card>
-            <Image src={comic.cover_illustration} wrapped ui={false} />
+        <Card id={id} onClick={handleClick}>
+            <Card.Content>CONTENT</Card.Content>
+            {/* <Image src={comic.cover_illustration} wrapped ui={false} />
             <Card.Content>
                 <Card.Header>{comic.name}</Card.Header>
                 <Card.Meta>
@@ -26,9 +33,7 @@ function ComicCard( { comic }) {
                 <div className='stars in a row'>
                     {stars()}
                 </div>
-            </Card.Content>
-            <Button >Read Reviews</Button>
-            <Button >Write Review</Button>
+            </Card.Content> */}
         </Card>
     )
 }

@@ -26,11 +26,6 @@ function App() {
       }
     });
   }, []);
-  // const navigate = useNavigate();
-  // const handleClick = (e) => {
-  //     navigate(`/comics/${id}`,  { replace: true })
-  //     console.log(id)
-  // }
   return (
     <>
     <CreateAccountForm open={open} handleClick={handleClick}/>
