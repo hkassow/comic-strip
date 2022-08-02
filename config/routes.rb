@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :comics
+  resources :reviews
   resources :users
   post "/login", to: "sessions#create"
   get "/me", to: "users#show"

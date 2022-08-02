@@ -1,5 +1,7 @@
 class User < ApplicationRecord
+    has_many :reviews
+    has_many :comics, through: :reviews
     has_secure_password
-    validates :username, uniqueness:true
-    validates :username, :password, presence: true
+    validates :name, :username, presence: true
+    validates :username, uniqueness: true
 end
