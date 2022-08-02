@@ -22,19 +22,9 @@ function Comics(){
         <Segment style={{padding: 100}} textAlign='center' size='massive'>filter or title of section</Segment>
         <Container>
             <Card.Group itemsPerRow={4}>
-                {/* {displayComics()} */}
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
-                <Card color='red'>Card</Card>
+                <ComicCard id={1}/>
+                <ComicCard id={2}/>
+                <ComicCard id={3}/>
             </Card.Group>
         </Container>
         </>

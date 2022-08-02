@@ -24,7 +24,7 @@ function NavBar ({onLogin, handleClick, user}) {
             </GridColumn>
             <GridColumn >
                 {user? 
-                <Menu fluid widths={1} backgroundcolor='white'>
+                <Menu inverted fluid widths={1} backgroundcolor='white'>
                     <MenuItem onClick={logout}>logout</MenuItem>
                 </Menu>:
                 <LoginForm onLogin={onLogin} handleClick={handleClick}/>
