@@ -1,6 +1,6 @@
 import React from "react";
 import { Segment, Card, Container, Grid, Divider, Image } from "semantic-ui-react";
-import Member_List_Style from "./Member_List_Style";
+import MemberListStyle from "./MemberListStyle";
 
 function Members(){
     return (
@@ -19,10 +19,10 @@ function Members(){
                 filter area?
             </Divider>
             <Grid  columns={6}>
-                <Member_List_Style/>
-                <Member_List_Style/>
-                <Member_List_Style/>
-                <Member_List_Style/>
+                <MemberListStyle/>
+                <MemberListStyle/>
+                <MemberListStyle/>
+                <MemberListStyle/>
             </Grid>
         </Container>
     </>

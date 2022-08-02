@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Button, Grid, GridColumn, GridRow, Menu, MenuItem } from "semantic-ui-react";
-import Login_Form from "./Login_Form";
+import { Grid, GridColumn, GridRow, Menu, MenuItem } from "semantic-ui-react";
+import LoginForm from "./LoginForm";
 import { useState } from "react"
 
-function NavBar ({onLogin}) {
+function NavBar ({onLogin, handleClick}) {
     const [loginToggle, changeLoginToggle] = useState(false)
     const handleToggle = () => {
         changeLoginToggle(!loginToggle)
@@ -25,9 +25,9 @@ function NavBar ({onLogin}) {
                 {!loginToggle?
                 <Menu inverted widths={2}>
                     <MenuItem onClick={handleToggle}>Login</MenuItem>
-                    <MenuItem >Create account</MenuItem>
+                    <MenuItem onClick={handleClick}>Create account</MenuItem>
                 </Menu>:
-                <Login_Form handleToggle={handleToggle} onLogin={onLogin}/>}
+                <LoginForm handleToggle={handleToggle} onLogin={onLogin}/>}
                 {/* <Menu width={1} inverted>
                     {!loginToggle?<MenuItem onClick={handleToggle}>Login</MenuItem> :
                     <MenuItem fluid as={Login_form} handleToggle={handleToggle} onLogin={onLogin}> </MenuItem>}

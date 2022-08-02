@@ -5,10 +5,16 @@ import Home from './components/Home'
 import Comics from './components/Comics';
 import Members from './components/Members'
 import NavBar from './components/NavBar';
+import ModalShort from './components/ModalShort';
+import { Button } from 'semantic-ui-react';
 
 
 function App() {
   const [user, setUser] = useState(null);
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen(!open)
+  }
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -24,14 +30,17 @@ function App() {
   //   return <Login_form onLogin={setUser} />;
   // }
   return (
+    <>
+    <ModalShort open={open} handleClick={handleClick}/>
     <BrowserRouter>
-      <NavBar onLogin={setUser}/>
+      <NavBar onLogin={setUser} handleClick={handleClick}/>
       <Routes>
         <Route path="/" element={<Home/>}> </Route>
         <Route path="/comics" element={<Comics/>}> </Route>
         <Route path="/members" element={<Members/>}> </Route>
-      </Routes>
+      </Routes> 
     </BrowserRouter>
+    </>
   )
 }
 export default App;
