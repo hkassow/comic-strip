@@ -3,6 +3,7 @@ import {useEffect, useState } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './components/Home'
 import Comics from './components/Comics';
+import ComicPage from './components/ComicPage';
 import Members from './components/Members'
 import NavBar from './components/NavBar';
 import ModalShort from './components/CreateAccountForm';
@@ -25,10 +26,10 @@ function App() {
       }
     });
   }, []);
-  // if (user) {
-  //   return <h2>Welcome, {user.username}!</h2>;
-  // } else {
-  //   return <Login_form onLogin={setUser} />;
+  // const navigate = useNavigate();
+  // const handleClick = (e) => {
+  //     navigate(`/comics/${id}`,  { replace: true })
+  //     console.log(id)
   // }
   return (
     <>
@@ -37,7 +38,8 @@ function App() {
       <NavBar user={user} onLogin={setUser} handleClick={handleClick}/>
       <Routes>
         <Route path="/" element={<Home/>}> </Route>
-        <Route path="/comics" element={<Comics/>}> </Route>
+        <Route path="/comics" element={<Comics/>} />
+        <Route path="/comics/:id" element={<ComicPage />} />
         <Route path="/members" element={<Members/>}> </Route>
       </Routes> 
     </BrowserRouter>
