@@ -1,21 +1,32 @@
 import React from "react";
-import { Container, Grid, GridColumn, GridRow } from "semantic-ui-react";
+import { Container, Grid, GridColumn, GridRow, Header, Image, Segment } from "semantic-ui-react";
+import { useLocation } from "react-router-dom";
+import ReviewForm from "./ReviewForm";
 
-
-const ComicPage = () => {
+const ComicPage = ({user}) => {
+    const comic = useLocation().state
+    console.log(comic)
     return (
-        <Grid columns={3} stretched style={{"padding": "50px", "text-align":"center"}}>
+        <Grid columns={3} stretched style={{"padding": "50px", "textAlign":"center"}}>
             <GridRow celled>
                 <GridColumn>
                     <Container>
-                        image
+                        <Image src={comic.cover_illustration} fluid/>
                     </Container>
                 </GridColumn>
-                <GridColumn>synopsis</GridColumn>
-                <GridColumn>add review/add to list</GridColumn>
+                <GridColumn>
+                    {/* <Header>TITLE OF COMIC</Header> */}
+                    <Segment inverted compact>
+                    {/* <Header>Synopsis</Header> */}
+                        {comic.synopsis}
+                    </Segment>
+                </GridColumn>
+                <GridColumn><ReviewForm comic={comic} user={user}/></GridColumn>
             </GridRow>
             <GridRow centered>
-                <GridColumn style={{"text-align":"center"}}>reviews</GridColumn>
+                <GridColumn style={{"textAlign":"center"}}>
+                    reviews 
+                </GridColumn>
             </GridRow>
 
         </Grid>
