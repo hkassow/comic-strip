@@ -6,9 +6,6 @@ function ComicWithReviews( { comic, user, handleUserReview } ){
     let reviews
     function reviewCards() {
         reviews = comic.reviews.map((review) => {
-        // if (review.user.id === user.id) {
-        //     handleUserReview(review)
-        // }
         return <ReviewCard review={review} />}
         )
     }
