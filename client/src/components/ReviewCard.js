@@ -15,10 +15,13 @@ function ReviewCard( { review }) {
     return (
         <Card fluid>
             <Card.Content>
-                {/* <Card.Header>{review.user.username}</Card.Header> */}
-                <div className='stars in a row'>
-                    {stars()}
-                </div>
+                <Card.Header>
+                    <Icon name='user'/>
+                    {review.username}
+                    <div className='stars in a row'>
+                        {stars()}
+                    </div>
+                    </Card.Header>
                 <Card.Description>
                     {review.comment}
                 </Card.Description>
