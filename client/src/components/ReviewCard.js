@@ -3,7 +3,7 @@ import { Card, Icon } from 'semantic-ui-react'
 
 function ReviewCard( { review }) {
 
-    console.log('hi')
+    console.log(review)
     function stars() {
         const array = []
         for ( let i = 0; i < review.star; i++) {

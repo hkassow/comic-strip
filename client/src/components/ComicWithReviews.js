@@ -2,13 +2,17 @@ import React from "react";
 import { Card, Container, Header } from "semantic-ui-react";
 import ReviewCard from "./ReviewCard.js"
 
-function ComicWithReviews( { comic } ){
+function ComicWithReviews( { comic, user, handleUserReview } ){
     let reviews
     function reviewCards() {
-        reviews = comic.reviews.map((review) => <ReviewCard review={review} />)
+        reviews = comic.reviews.map((review) => {
+        // if (review.user.id === user.id) {
+        //     handleUserReview(review)
+        // }
+        return <ReviewCard review={review} />}
+        )
     }
     reviewCards()
-    console.log(comic.reviews)
     return (
         <>
         <Header as='h1'>Reviews for {comic.name}</Header>
