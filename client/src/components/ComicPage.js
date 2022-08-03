@@ -20,6 +20,11 @@ const ComicPage = ({user}) => {
     const handleUserReview = (review) => {
         setUserReview(review)
     }
+    const testFunciton = () => {
+        fetch(`/reviews?comic_id=${comic.id}&user_id=${user.id}`)
+        .then(r => r.json())
+        .then(d => console.log(d))
+    }
     console.log(comic)
     console.log(user)
     return (
@@ -45,7 +50,7 @@ const ComicPage = ({user}) => {
                     {!userReview? 
                     <>
                         <Input fluid placeholder='USER REVIEW'></Input>
-                        <Button style={{"padding":'105px'}}>click to edit</Button>
+                        <Button onClick={() => testFunciton()} style={{"padding":'105px'}}>click to edit</Button>
                     </>
                     :<ReviewForm comic={comic} user={user}/>}
                     </Segment>

@@ -3,25 +3,21 @@ class ReviewsController < ApplicationController
 
   # GET /reviews
   def index
-    @reviews = Review.all
+    if params[:user_id]
+      comic = Comic.find_by(id: params[:comic_id])
+      review = comic.reviews.find_by(user_id: params[:user_id])
+      pp review
+      render json: review, serializer: ReviewSerializer
+    else 
+      @reviews = Review.all
 
-    render json: @reviews
+      render json: @reviews
+    end
   end
 
   # GET /reviews/1
   def show
     render json: @review
-  end
-
-  # GET /comic/:id/review
-  def showOne
-    comic = Comic.find_by(id: params[:id])
-    review = comic.review.find_by(user_id: session[:user_id])
-    render json review, serializer: ReviewSerializer
-
-    # reviews = @reviews.find_by(user_id: session[:user_id])
-    # reviewsComic = reviews.find_by(comic_id: params[:id])
-    # render json: reviewsComic, serializer: ReviewSerializer
   end
 
 
