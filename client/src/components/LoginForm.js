@@ -1,17 +1,14 @@
 import React from 'react'
-import { Button, Form, Segment, Menu,MenuItem } from 'semantic-ui-react'
+import { Button, Form, Segment, Menu,MenuItem, Input, MenuMenu } from 'semantic-ui-react'
 import { useState } from "react"
 
-const LoginForm =({onLogin, handleClick }) => {
-    const [loginToggle, changeLoginToggle] = useState(false)
+const LoginForm =({onLogin, handleToggle}) => {
     const [loginError,setLoginError] = useState(null)
     const [user, setUser] = useState({
       username: null,
       password: null
     })
-    const handleToggle = () => {
-      changeLoginToggle(!loginToggle)
-    }
+
     const handleChange = (e) => {
       const {placeholder, value} = e.target
       setUser({...user, [placeholder]:value})
@@ -40,26 +37,30 @@ const LoginForm =({onLogin, handleClick }) => {
           }
         })
     }
-    if (!loginToggle) {
-      return (
-        <Menu inverted widths={2}>
-          <MenuItem onClick={handleToggle}>Login</MenuItem>
-          <MenuItem onClick={handleClick}>Create account</MenuItem>
-        </Menu>
-      )
-    }
 
-    return (
-        <Segment inverted>
-          <Form inverted onSubmit={handleSubmit}>
-            <Form.Group  widths='equal'>
-              <Form.Input error={loginError} fluid label='Username' placeholder='username' onChange={handleChange}/>
-              <Form.Input error={loginError} fluid label='Password' type="password" placeholder='password' onChange={handleChange}/>
-            </Form.Group>
-            <Button type='submit'>Submit</Button>
-            <Button style={{float: "right"}} onClick={handleToggle}>x</Button>
-          </Form>
-        </Segment>
+    return  (
+          // <Form inverted compact onSubmit={handleSubmit}>
+          //   <Form.Group >
+          //     <Form.Input error={loginError} fluid label='Username' placeholder='username' onChange={handleChange}/>
+          //     <Form.Input error={loginError} fluid label='Password' type="password" placeholder='password' onChange={handleChange}/>
+          //     <Button type='submit'>Submit</Button>
+          //     <Button  onClick={handleToggle}>x</Button>
+          //   </Form.Group>
+          // </Form>
+          <MenuMenu >
+            <MenuItem style={{"marginLeft": "auto", "marginRight": "auto"}}>
+              <Input error={loginError} placeholder='username' onChange={handleChange}></Input>
+            </MenuItem>
+            <MenuItem style={{"padding-left": "5px"}}>
+              <Input error={loginError} placeholder='password'onChange={handleChange}></Input>
+            </MenuItem>
+            <MenuItem position='right'>
+              <Button onClick={handleSubmit}>Submit</Button>
+            </MenuItem>
+            <MenuItem position='right'>
+              <Button  onClick={handleToggle}>x</Button>
+            </MenuItem>
+          </MenuMenu>
     )
 }
 

@@ -3,16 +3,18 @@ import { Card, Container, Header } from "semantic-ui-react";
 import ReviewCard from "./ReviewCard.js"
 
 function ComicWithReviews( { comic } ){
-
+    let reviews
     function reviewCards() {
-        comic.reviews.map((review) => <ReviewCard review={review} />)
+        reviews = comic.reviews.map((review) => <ReviewCard review={review} />)
     }
+    reviewCards()
+    console.log(comic.reviews)
     return (
         <>
         <Header as='h1'>Reviews for {comic.name}</Header>
         <Container>
             <Card.Group itemsPerRow={1}>
-               { reviewCards }
+               { reviews }
             </Card.Group>
         </Container>
         </>

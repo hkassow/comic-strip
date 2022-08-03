@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Radio } from 'semantic-ui-react'
 import { useState } from "react"
 
 function ReviewForm( { comic, user } )  {
@@ -31,7 +31,7 @@ function ReviewForm( { comic, user } )  {
     }
 
     return (
-      <Form onSubmit={handleSubmit}>
+      <Form inverted onSubmit={handleSubmit}>
         <Form.Field onChange={(e) => setComment(e.target.value)}>
             <label>Review</label>
             <input placeholder='Write Your Review Here' />
@@ -42,40 +42,38 @@ function ReviewForm( { comic, user } )  {
                 control={Radio}
                 label='One Star'
                 value='1'
-                checked={value === '1'}
+                checked={star === '1'}
                 onChange={(e) => setStar('1')}
             />
             <Form.Field 
                 control={Radio}
                 label='Two Stars'
                 value='2'
-                checked={value === '2'}
+                checked={star === '2'}
                 onChange={(e) => setStar('2')}
             />
             <Form.Field 
                 control={Radio}
                 label='Three Stars'
                 value='3'
-                checked={value === '3'}
+                checked={star === '3'}
                 onChange={(e) => setStar('3')}
             />
             <Form.Field 
                 control={Radio}
                 label='Four Stars'
                 value='4'
-                checked={value === '4'}
+                checked={star === '4'}
                 onChange={(e) => setStar('4')}
             />
             <Form.Field 
                 control={Radio}
                 label='Five Stars'
                 value='5'
-                checked={value === '5'}
+                checked={star === '5'}
                 onChange={(e) => setStar('5')}
             />
         </Form.Group>
-        <Button type='submit'>Submit</Button>
-        <Button onClick={handleToggle}>x</Button>
       </Form>
     )
 }

@@ -34,7 +34,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}> </Route>
         <Route path="/comics" element={<Comics/>} />
-        <Route path="/comics/:id" element={<ComicPage />} />
+        <Route path="/comics/:id" element={<ComicPage user={user}/>} />
         <Route path="/members" element={<Members/>}> </Route>
       </Routes> 
     </BrowserRouter>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Card, CardContent, Icon, Image } from 'semantic-ui-react'
 import { useNavigate } from "react-router-dom";
 
-function ComicCard( { comic, id }) {
+function ComicCard( { comic }) {
 
     function stars() {
         const array = []
@@ -18,12 +18,12 @@ function ComicCard( { comic, id }) {
     }
     const navigate = useNavigate();
     const handleClick = (e) => {
-        navigate(`/comics/${id}`,  { replace: true })
-        console.log(id)
+        navigate(`/comics/${comic.id}`,  { replace: true, state: comic})
     }
 
     return (
-        <Card id={id} onClick={handleClick}>
+        <Card id={comic.id} onClick={handleClick}>
+            <Card.Content>CONTENT</Card.Content>
             <Image src={comic.cover_illustration} wrapped ui={false} />
             <Card.Content>
                 <Card.Header>{comic.name}</Card.Header>
