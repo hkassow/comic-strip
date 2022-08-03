@@ -79,6 +79,8 @@ const ComicPage = ({user, editReviewInComic}) => {
         .then(r => r.json())
         .then(d => console.log(d))
     }
+    console.log(comic)
+    console.log(user)
     return (
         <>
         <Grid celled columns={3} stretched style={{"padding": "50px", "textAlign":"center"}}>
