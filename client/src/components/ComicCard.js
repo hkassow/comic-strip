@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, CardContent, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon, Image } from 'semantic-ui-react'
 import { useNavigate } from "react-router-dom";
 
 function ComicCard( { comic }) {
@@ -23,10 +23,10 @@ function ComicCard( { comic }) {
 
     return (
         <Card id={comic.id} onClick={handleClick}>
+
             <Card.Content textAlign='center'>{comic.name}</Card.Content>
             <Image src={comic.cover_illustration} wrapped ui={false} />
             <Card.Content>
-                <Card.Header>{comic.name}</Card.Header>
                 <Card.Meta>
                     <span>Author: {comic.author}</span>
                     <span>Illustrator: {comic.illustrator}</span>
