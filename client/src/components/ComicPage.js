@@ -25,6 +25,7 @@ const ComicPage = ({user, editReviewInComic}) => {
         setUserReview(review)
     }
 
+
     const handleEditReview = (e) => {
         setEditReview(false)
         console.log(starAmount)
@@ -72,6 +73,11 @@ const ComicPage = ({user, editReviewInComic}) => {
                 stars[i].className = 'star icon'
             }
         }
+    }
+    const testFunciton = () => {
+        fetch(`/reviews?comic_id=${comic.id}&user_id=${user.id}`)
+        .then(r => r.json())
+        .then(d => console.log(d))
     }
     return (
         <>

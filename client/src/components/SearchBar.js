@@ -39,6 +39,15 @@ function SearchBar({comics, setComicDisplay}) {
   function handleSearch(e, t, a, i, p, c) {
     e.preventDefault();
     console.log(e, t, a, i, p, c)
+    // let BothOrNoneFilter = []
+    // for(let i = 0; i < searchFilterTitle(t).length; i++) {
+    //     for(let j = 0; j < searchFilterAuthor(a).length; j++){
+    //         if(searchFilterTitle(t)[i].equals(searchFilterAuthor(a)[j])){
+    //             BothOrNoneFilter.push(searchFilterTitle(t)[i])
+    //         }
+    //     }
+    // }
+    // console.log(BothOrNoneFilter)
     let totalSearchFilter = [...searchFilterTitle(t), ...searchFilterAuthor(a), ...searchFilterIllustrator(i), ...searchFilterProtagonist(p), ...searchFilterCompany(c)]
     //console.log(totalSearchFilter);
     let toPush=[];
@@ -46,6 +55,7 @@ function SearchBar({comics, setComicDisplay}) {
         if(!toPush.includes(x) && x!==[]) {
           toPush.push(x)
         }})
+    toPush.sort((a, b) => a.name.localeCompare(b.name))
     setComicDisplay(toPush);
   }
 
@@ -60,7 +70,7 @@ function SearchBar({comics, setComicDisplay}) {
         }
       }
     }
-   // console.log(tempTitleArr)
+//    console.log(tempTitleArr)
     return(tempTitleArr);
   }
   return [];
