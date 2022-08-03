@@ -6,10 +6,15 @@ function ComicCard( { comic }) {
 
     function stars() {
         const array = []
-        for ( let i = 0; i < comic.average_rating; i++) {
-            array.push(<Icon name="star outline" />)
+        if (comic.average_rating !== 'undefined') {
+            for ( let i = 0; i < comic.average_rating; i++) {
+                array.push(<Icon name="star outline" />)
+            }
+            return array
         }
-        return array
+        else {
+            console.log("no reviews")
+        }
     }
     const navigate = useNavigate();
     const handleClick = (e) => {
@@ -17,7 +22,7 @@ function ComicCard( { comic }) {
     }
 
     return (
-        <Card onClick={handleClick}>
+        <Card id={comic.id} onClick={handleClick}>
             <Card.Content>CONTENT</Card.Content>
             <Image src={comic.cover_illustration} wrapped ui={false} />
             <Card.Content>
