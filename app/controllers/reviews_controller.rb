@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
   # GET /comic/:id/review
   def showOne
     comic = Comic.find_by(id: params[:id])
-    review = comic.review.find_(user_id: session[:user_id])
+    review = comic.review.find_by(user_id: session[:user_id])
     render json review, serializer: ReviewSerializer
 
     # reviews = @reviews.find_by(user_id: session[:user_id])
