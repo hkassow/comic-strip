@@ -31,7 +31,7 @@ function ReviewForm( { comic, user } )  {
     }
 
     return (
-      <Form inverted onSubmit={handleSubmit}>
+      <Form  inverted onSubmit={handleSubmit}>
         <Form.Field onChange={(e) => setComment(e.target.value)}>
             <label>Review</label>
             <input placeholder='Write Your Review Here' />

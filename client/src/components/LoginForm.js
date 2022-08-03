@@ -52,7 +52,7 @@ const LoginForm =({onLogin, handleToggle}) => {
               <Input error={loginError} placeholder='username' onChange={handleChange}></Input>
             </MenuItem>
             <MenuItem style={{"padding-left": "5px"}}>
-              <Input error={loginError} placeholder='password'onChange={handleChange}></Input>
+              <Input error={loginError} placeholder='password' type='password' onChange={handleChange}></Input>
             </MenuItem>
             <MenuItem position='right'>
               <Button onClick={handleSubmit}>Submit</Button>
