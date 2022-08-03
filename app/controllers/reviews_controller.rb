@@ -13,6 +13,14 @@ class ReviewsController < ApplicationController
     render json: @review
   end
 
+  # GET /comic/:id/review
+  def showOne
+    reviews = @reviews.find_by(user_id: session[:user_id])
+    reviewsComic = reviews.find_by(comic_id: params[:id])
+    render json: reviewsComic, serializer: ReviewSerializer
+  def
+
+
   # POST /reviews
   def create
     @review = Review.new(review_params)

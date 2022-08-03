@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
   post "/login", to: "sessions#create"
   get "/me", to: "users#show"
+  get "/comic/:id/review", to: "review#showOne"
   delete "/logout", to: "sessions#destroy"
 
   # Routing logic: fallback requests for React Router.
