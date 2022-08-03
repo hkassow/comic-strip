@@ -23,7 +23,7 @@ const ComicPage = ({user}) => {
                         {comic.synopsis}
                     </Segment>
                 </GridColumn>
-                <GridColumn><ReviewForm comic={comic} user={user}/></GridColumn>
+                <GridColumn>{user? <ReviewForm comic={comic} user={user}/> : <Header>login to create a review overlaying the content with slightly grey box</Header>}</GridColumn>
             </GridRow>
             <GridRow centered>
                 <GridColumn style={{"textAlign":"center"}}>

@@ -12,7 +12,7 @@ function Comics(){
           .then((response) => response.json())
           .then((data) => setComics(data));
     }, []);
-
+    console.log(comics)
     function displayComics() {
         const slicedComics = comics.slice(0, 12)
         return slicedComics.map((comic) => <ComicCard comic={comic} />)
@@ -26,7 +26,7 @@ function Comics(){
         </Segment>
         <Container>
             <Card.Group itemsPerRow={4}>
-            {comicDisplay === [] ? displayComics() : comicDisplay.map(comic => <ComicCard key = {comic.id} comic = {comic} />)}
+            {comicDisplay === [] ? displayComics() : comics.map(comic => <ComicCard key = {comic.id} comic = {comic} />)}
             </Card.Group>
         </Container>
         </>

@@ -3,7 +3,7 @@ import { Card, Icon } from 'semantic-ui-react'
 
 function ReviewCard( { review }) {
 
-
+    console.log('hi')
     function stars() {
         const array = []
         for ( let i = 0; i < review.star; i++) {
@@ -15,7 +15,7 @@ function ReviewCard( { review }) {
     return (
         <Card fluid>
             <Card.Content>
-                <Card.Header>{review.user.username}</Card.Header>
+                {/* <Card.Header>{review.user.username}</Card.Header> */}
                 <div className='stars in a row'>
                     {stars()}
                 </div>
