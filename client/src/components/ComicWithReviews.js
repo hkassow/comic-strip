@@ -7,6 +7,7 @@ function ComicWithReviews( { comic } ){
     function reviewCards() {
         comic.reviews.map((review) => <ReviewCard review={review} />)
     }
+    console.log(comic)
     return (
         <>
         <Header as='h1'>Reviews for {comic.name}</Header>
