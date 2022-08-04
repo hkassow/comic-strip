@@ -26,7 +26,8 @@ function ReadList({user}){
         </GridRow>
         <GridRow>
             <GridColumn>
-                    {watchList?<Card.Group itemsPerRow={4}> {watchList.map(watch => (<ComicCard key = {watch.comic_id} comic = {watch.comic} handleDeleteWatch={handleDeleteWatch} watchID = {watch.id}/>))}</Card.Group> :<Header textAlign="center">NO COMICS CURRENTLY IN YOUR READ LIST</Header>}
+                    {watchList?<Card.Group itemsPerRow={4}> {watchList.map(watch => (<ComicCard key = {watch.comic_id} comic = {watch.comic} handleDeleteWatch={handleDeleteWatch} watchID = {watch.id}/>))}</Card.Group> 
+                    :<Header textAlign="center">{user?"NO COMICS CURRENTLY IN YOUR READ LIST":"LOGIN OR CREATE AN ACCOUNT TO START A READ LIST"}</Header>}
             </GridColumn>
         </GridRow>
     </Grid>
