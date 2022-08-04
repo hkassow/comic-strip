@@ -6,8 +6,11 @@ class ReviewsController < ApplicationController
     if params[:user_id]
       comic = Comic.find_by(id: params[:comic_id])
       review = comic.reviews.find_by(user_id: params[:user_id])
-      pp review
-      render json: review, serializer: ReviewSerializer
+      if (review == nil)
+        render json: 'no review'
+      else
+        render json: review, serializer: ReviewSerializer
+      end
     else 
       @reviews = Review.all
 
@@ -35,7 +38,7 @@ class ReviewsController < ApplicationController
   # PATCH/PUT /reviews/1
   def update
     if @review.update(review_params)
-      render json: @review.comic
+      render json: @review
     else
       render json: @review.errors, status: :unprocessable_entity
     end

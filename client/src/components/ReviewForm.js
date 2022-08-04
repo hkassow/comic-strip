@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Form, Radio } from 'semantic-ui-react'
 import { useState } from "react"
 
-function ReviewForm( { comic, user } )  {
+function ReviewForm( { comic, user, handleUserReview } )  {
     const [star, setStar] = useState("");
     const [comment, setComment] = useState("");
     const [userId, setUserId] = useState("")
@@ -27,7 +27,7 @@ function ReviewForm( { comic, user } )  {
         body: JSON.stringify(review),
         })
         .then((r) => r.json())
-        .then((review) => console.log(review));
+        .then((review) => handleUserReview(review));
     }
 
     return (
@@ -74,6 +74,7 @@ function ReviewForm( { comic, user } )  {
                 onChange={(e) => setStar('5')}
             />
         </Form.Group>
+        <Button type='submit'>Submit</Button>
       </Form>
     )
 }

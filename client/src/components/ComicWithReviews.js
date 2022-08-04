@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Container, Header } from "semantic-ui-react";
 import ReviewCard from "./ReviewCard.js"
 
-function ComicWithReviews( { comic, user, handleUserReview } ){
+function ComicWithReviews( { comic, user, } ){
     let reviews
     function reviewCards() {
         reviews = comic.reviews.map((review) => {
