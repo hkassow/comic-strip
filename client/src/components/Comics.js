@@ -37,8 +37,6 @@ function Comics(){
     //     }
     // }
 
-    // console.log(comicDisplay)
-    // console.log(comics)
     return (
         <>
         <Segment style={{padding: 50, marginTop: "0px"}} textAlign='center' size='massive'>

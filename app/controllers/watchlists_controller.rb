@@ -19,7 +19,7 @@ class WatchlistsController < ApplicationController
   # GET /watchlists
   def index
     if params[:user_id]
-      watchlist = Watchlist.find_by(user_id: params[:user_id])
+      watchlist = Watchlist.where(user_id: params[:user_id])
       if (watchlist == nil)
         render json: 'no watchlist'
       else
@@ -29,6 +29,7 @@ class WatchlistsController < ApplicationController
     @watchlists = Watchlist.all
 
     render json: @watchlists
+    end
   end
 
 
@@ -70,6 +71,6 @@ class WatchlistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def watchlist_params
-      params.require(:watchlist).permit(:user_id, :comic_id)
+      params.permit(:user_id, :comic_id)
     end
 end

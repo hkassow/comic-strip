@@ -13,7 +13,6 @@ import { Container,
 import { useLocation } from "react-router-dom";
 import ReviewForm from "./ReviewForm";
 import ComicWithReviews from "./ComicWithReviews";
-import CreateAccountForm from "./CreateAccountForm";
 
 const ComicPage = ({user}) => {
     const [userReview, setUserReview] = useState(false)
@@ -60,11 +59,14 @@ const ComicPage = ({user}) => {
         }
     }
     const handleReadListClick = () => {
-        fetch(`/watchlist`,{
+        const watch = {comic_id: comic.id, user_id: user.id}
+        fetch("/watchlists",{
             method: "POST",
-            body: JSON.stringify({comic_id: comic.id, user_id: user.id})
-        }).then(r => r.json())
-        .then()
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(watch)
+        }).then(r => r.json()).then(d => console.log(d))
     }
     useEffect(() => {
         if (user && comic) {

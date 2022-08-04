@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Grid, GridColumn, GridRow, Menu, MenuItem, Button, MenuMenu, Container } from "semantic-ui-react";
+import { Grid, GridColumn, GridRow, Menu, MenuItem } from "semantic-ui-react";
 import LoginForm from "./LoginForm";
 import { useState } from "react"
 
@@ -23,7 +23,7 @@ function NavBar ({onLogin, handleClick, user}) {
                     <Menu class="ui top fixed menu" style={{"background-color": "red"}} widths="3" inverted>
                         <MenuItem class="item" as={NavLink} to='/'>Home</MenuItem>
                         <MenuItem class="item" as={NavLink} to='/comics'>Comics</MenuItem>
-                        <MenuItem class="item" as={NavLink} to='/members'>Members</MenuItem>
+                        <MenuItem class="item" as={NavLink} to='/readlist'>Read List</MenuItem>
                         </Menu>
                 </GridColumn>
                 <GridColumn >

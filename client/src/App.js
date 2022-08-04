@@ -4,11 +4,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './components/Home'
 import Comics from './components/Comics';
 import ComicPage from './components/ComicPage';
-import Members from './components/Members'
 import NavBar from './components/NavBar';
-import ModalShort from './components/CreateAccountForm';
-import { Button } from 'semantic-ui-react';
 import CreateAccountForm from './components/CreateAccountForm';
+import ReadList from './components/ReadList';
 
 
 function App() {
@@ -17,7 +15,6 @@ function App() {
   const handleClick = () => {
     setOpen(!open)
   }
-  console.log(user)
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -35,7 +32,7 @@ function App() {
         <Route path="/" element={<Home/>}> </Route>
         <Route path="/comics" element={<Comics/>} />
         <Route path="/comics/:id" element={<ComicPage user={user}/>} />
-        <Route path="/members" element={<Members/>}> </Route>
+        <Route path="/readlist" element={<ReadList user={user}/>}> </Route>
       </Routes> 
     </BrowserRouter>
     </>

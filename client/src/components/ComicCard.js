@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, Icon, Image, Button } from 'semantic-ui-react'
 import { useNavigate } from "react-router-dom";
 
-function ComicCard( { comic }) {
+function ComicCard( { comic, handleDeleteWatch, watchID }) {
 
     function stars() {
         const array = []
@@ -20,9 +20,14 @@ function ComicCard( { comic }) {
     const handleClick = (e) => {
         navigate(`/comics/${comic.id}`,  { replace: true, state: comic})
     }
+    const handleDeleteCard = () => {
+        const element = document.getElementById(comic.name);
+        element.remove();
+        handleDeleteWatch(watchID)
+    }
 
     return (
-        <Card id={comic.id} onClick={handleClick}>
+        <Card id={comic.name} onClick={watchID? null : handleClick}>
 
             <Card.Content textAlign='center'>{comic.name}</Card.Content>
             <Image src={comic.cover_illustration} wrapped ui={false} />
@@ -37,8 +42,8 @@ function ComicCard( { comic }) {
                 <div className='stars in a row'>
                     {stars()}
                 </div>
-                {/* <Button size='small' floated='right'>x</Button> */}
             </Card.Content>
+            {watchID?<Button onClick={handleDeleteCard} style={{'marginTop':"5px"}} floated='center'>remove from read list?</Button>: <></>}
         </Card>
     )
 }

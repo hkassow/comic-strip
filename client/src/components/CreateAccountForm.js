@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Button, Form, Message } from 'semantic-ui-react'
-import './Modal.css';
 
 
 function CreateAccountForm({open, handleClick, onLogin}) {
