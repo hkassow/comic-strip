@@ -20,15 +20,15 @@ function NavBar ({onLogin, handleClick, user}) {
                 <Grid.Column>
                 </Grid.Column>
                 <GridColumn >
-                    <Menu widths="3" inverted>
-                        <MenuItem as={NavLink} to='/'>Home</MenuItem>
-                        <MenuItem as={NavLink} to='/comics'>Comics</MenuItem>
-                        <MenuItem as={NavLink} to='/members'>Members</MenuItem>
+                    <Menu class="ui top fixed menu" style={{"background-color": "red"}} widths="3" inverted>
+                        <MenuItem class="item" as={NavLink} to='/'>Home</MenuItem>
+                        <MenuItem class="item" as={NavLink} to='/comics'>Comics</MenuItem>
+                        <MenuItem class="item" as={NavLink} to='/members'>Members</MenuItem>
                         </Menu>
                 </GridColumn>
                 <GridColumn >
                     {loginToggle?
-                        <Menu style={{"position":'absolute'}} inverted widths={4}>
+                        <Menu class="ui bottom fixed menu" style={{"position":'absolute', "background-color": "red"}} inverted widths={4}>
                             <LoginForm onLogin={onLogin} handleToggle={handleToggle}/>
                         </Menu>
                         :user?
@@ -36,9 +36,9 @@ function NavBar ({onLogin, handleClick, user}) {
                             <MenuItem onClick={logout}>logout</MenuItem>
                         </Menu>
                         :
-                        <Menu inverted widths={2}>
+                        <Menu class="ui bottom fixed menu" style={{"background-color": "red"}} inverted widths={2}>
                             <MenuItem onClick={handleToggle}>Login</MenuItem>
-                            <MenuItem onClick={handleClick}>Create account</MenuItem>
+                            <MenuItem onClick={handleClick}>Create Account</MenuItem>
                         </Menu>
                         }
                 </GridColumn>
