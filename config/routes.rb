@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :watchlists
-  resources :comics
+  resources :comics, only: [:index, :show]
   resources :reviews
   resources :users
   post "/login", to: "sessions#create"

@@ -4,11 +4,6 @@ import MemberListStyle from "./MemberListStyle";
 
 function Members({user}){
     const [watchList, setWatchList] = useState(null)
-    // useEffect(() => {
-    //     fetch(`/watching?${user.id}`)
-    //     .then(r => r.json())
-    //     .then(d => setWatchList(d))
-    // },[])
     return (
     <Grid >
         <GridRow style={{marginTop: "0px",}}>

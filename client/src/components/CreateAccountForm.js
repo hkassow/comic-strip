@@ -78,9 +78,3 @@ function CreateAccountForm({open, handleClick, onLogin}) {
 }
 
 export default CreateAccountForm
-
-//<div class='trial'>
-{/* <div class="container-fluid">
-<div>hi</div>
-</div>
-</div>  */}

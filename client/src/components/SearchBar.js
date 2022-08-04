@@ -9,7 +9,6 @@ function SearchBar({comics, setComicDisplay}) {
   const [illustrator, setIllustrator] = useState("")
   const [protagonist, setProtagonist] = useState("");
   const [company, setCompany] = useState("")
-//   const [comicsToDisplay, setComicsToDisplay] = useState([])
 
   function handleTitleChange(e){
     setTitle(e.target.value)
