@@ -27,7 +27,7 @@ function ReviewForm( { comic, user, handleUserReview } )  {
     }
 
     return (
-      <Form  inverted onSubmit={handleSubmit}>
+      <Form  style={{"z-index": "0"}}inverted onSubmit={handleSubmit}>
         <Form.Field onChange={(e) => setComment(e.target.value)}>
             <label>Review</label>
             <input placeholder='Write Your Review Here' />

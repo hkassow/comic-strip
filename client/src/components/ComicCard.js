@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon, Image, Button } from 'semantic-ui-react'
 import { useNavigate } from "react-router-dom";
 
 function ComicCard( { comic }) {
@@ -37,6 +37,7 @@ function ComicCard( { comic }) {
                 <div className='stars in a row'>
                     {stars()}
                 </div>
+                {/* <Button size='small' floated='right'>x</Button> */}
             </Card.Content>
         </Card>
     )

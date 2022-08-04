@@ -59,6 +59,13 @@ const ComicPage = ({user}) => {
             }
         }
     }
+    const handleReadListClick = () => {
+        fetch(`/watchlist`,{
+            method: "POST",
+            body: JSON.stringify({comic_id: comic.id, user_id: user.id})
+        }).then(r => r.json())
+        .then()
+    }
     useEffect(() => {
         if (user && comic) {
             fetch(`/reviews?comic_id=${comic.id}&user_id=${user.id}`)
@@ -91,9 +98,10 @@ const ComicPage = ({user}) => {
                 </GridColumn>
                 <GridColumn>
                     <Segment inverted compact>
-                        {user? <></>: <div className="inner" floated="left" style={{"z-index": "100", "textAlign":"center", "position":"absolute", "width":"100%", "paddingLeft":0,"height":"100%", "top": "0px", "left":"0px"}}>
+                        {user? <></>: <div className="inner" floated="left" style={{"z-index": "1", "textAlign":"center", "position":"absolute", "width":"100%", "paddingLeft":0,"height":"100%", "top": "0px", "left":"0px"}}>
                             <Header textAlign="center" style={{"width":"100%"}}>LOGIN TO LEAVE A REVIEW</Header>
                         </div>}
+                        <Button style={{"margin":"5px"}} fluid onClick={handleReadListClick}>add to read  list?</Button>
                     {userReview? 
                     <>
                         <Input fluid disabled={!editReview} placeholder={userReview.comment} onChange={(e) => setEditComment(e.target.value)}></Input>
@@ -109,7 +117,7 @@ const ComicPage = ({user}) => {
                         <Button style={{"margin-top":'5px'}} onClick={handleDeleteReview}>delete review</Button>
                         <Button floated='right' style={{"margin-top":'5px'}} onClick={(e) => handleEditReview(e)}>submit</Button>
                     </>
-                    :<ReviewForm comic={comic} user={user} handleUserReview={handleUserReview}/>}
+                        :<ReviewForm comic={comic} user={user} handleUserReview={handleUserReview}/>}
                     </Segment>
                 </GridColumn>
             </GridRow>
