@@ -4,8 +4,7 @@ class WatchlistsController < ApplicationController
   # GET /watchlists
   def index
     if params[:user_id]
-      comic = Comic.find_by(id: params[:comic_id])
-      watchlist = comic.watchlists.find_by(user_id: params[:user_id])
+      watchlist = Watchlist.find_by(user_id: params[:user_id])
       if (watchlist == nil)
         render json: 'no watchlist'
       else
@@ -16,6 +15,24 @@ class WatchlistsController < ApplicationController
 
     render json: @watchlists
   end
+
+  # Right a little confused what you were asking for, this one is essentially exactly what the other git index was just replacing Reviews with Watchlists
+  
+  
+  # def index
+  #   if params[:user_id]
+  #     comic = Comic.find_by(id: params[:comic_id])
+  #     watchlist = comic.watchlists.find_by(user_id: params[:user_id])
+  #     if (watchlist == nil)
+  #       render json: 'no watchlist'
+  #     else
+  #       render json: watchlist, serializer: WatchlistSerializer
+  #     end
+  #   else 
+  #   @watchlists = Watchlist.all
+
+  #   render json: @watchlists
+  # end
 
   # GET /watchlists/1
   def show
