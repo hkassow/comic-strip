@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :watchlists
   resources :comics
   resources :reviews
   resources :users

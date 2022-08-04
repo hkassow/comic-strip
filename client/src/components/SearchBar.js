@@ -145,11 +145,15 @@ function searchFilterCompany(i){
 
   return (
     <Form onSubmit={(e) => handleSearch(e, title, author, illustrator, protagonist, company)}>
-        <Form.Input fluid label='Title' placeholder='Search By Title' onChange={(e) => handleTitleChange(e)} />
-        <Form.Input fluid label='Author' placeholder='Search By Author' onChange={(e) => handleAuthorChange(e)} />
-        <Form.Input fluid label='Illustrator' placeholder='Search By Illustrator' onChange={(e) => handleIllustratorChange(e)} />
-        <Form.Input fluid label='Protagonist' placeholder='Search By Protagonist' onChange={(e) => handleProtagonistChange(e)} />
-        <Form.Input fluid label='Company' placeholder='Search By Company' onChange={(e) => handleCompanyChange(e)} />
+        <Form.Group widths='equal'>
+            <Form.Input fluid label='Title' placeholder='Search By Title' onChange={(e) => handleTitleChange(e)} />
+            <Form.Input fluid label='Protagonist' placeholder='Search By Protagonist' onChange={(e) => handleProtagonistChange(e)} />
+        </Form.Group>
+        <Form.Group widths='equal'>
+            <Form.Input fluid label='Author' placeholder='Search By Author' onChange={(e) => handleAuthorChange(e)} />
+            <Form.Input fluid label='Illustrator' placeholder='Search By Illustrator' onChange={(e) => handleIllustratorChange(e)} />
+            <Form.Input fluid label='Company' placeholder='Search By Company' onChange={(e) => handleCompanyChange(e)} />
+        </Form.Group>
     </Form>
   )
 }
