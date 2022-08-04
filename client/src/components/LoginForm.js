@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Segment, Menu,MenuItem, Input, MenuMenu } from 'semantic-ui-react'
+import { Button, MenuItem, Input, MenuMenu } from 'semantic-ui-react'
 import { useState } from "react"
 
 const LoginForm =({onLogin, handleToggle}) => {
@@ -39,14 +39,6 @@ const LoginForm =({onLogin, handleToggle}) => {
     }
 
     return  (
-          // <Form inverted compact onSubmit={handleSubmit}>
-          //   <Form.Group >
-          //     <Form.Input error={loginError} fluid label='Username' placeholder='username' onChange={handleChange}/>
-          //     <Form.Input error={loginError} fluid label='Password' type="password" placeholder='password' onChange={handleChange}/>
-          //     <Button type='submit'>Submit</Button>
-          //     <Button  onClick={handleToggle}>x</Button>
-          //   </Form.Group>
-          // </Form>
           <MenuMenu >
             <MenuItem style={{"marginLeft": "auto", "marginRight": "auto"}}>
               <Input error={loginError} placeholder='username' onChange={handleChange}></Input>

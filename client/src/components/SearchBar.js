@@ -9,7 +9,6 @@ function SearchBar({comics, setComicDisplay}) {
   const [illustrator, setIllustrator] = useState("")
   const [protagonist, setProtagonist] = useState("");
   const [company, setCompany] = useState("")
-//   const [comicsToDisplay, setComicsToDisplay] = useState([])
 
   function handleTitleChange(e){
     setTitle(e.target.value)
@@ -38,18 +37,7 @@ function SearchBar({comics, setComicDisplay}) {
 
   function handleSearch(e, t, a, i, p, c) {
     e.preventDefault();
-    console.log(e, t, a, i, p, c)
-    // let BothOrNoneFilter = []
-    // for(let i = 0; i < searchFilterTitle(t).length; i++) {
-    //     for(let j = 0; j < searchFilterAuthor(a).length; j++){
-    //         if(searchFilterTitle(t)[i].equals(searchFilterAuthor(a)[j])){
-    //             BothOrNoneFilter.push(searchFilterTitle(t)[i])
-    //         }
-    //     }
-    // }
-    // console.log(BothOrNoneFilter)
     let totalSearchFilter = [...searchFilterTitle(t), ...searchFilterAuthor(a), ...searchFilterIllustrator(i), ...searchFilterProtagonist(p), ...searchFilterCompany(c)]
-    //console.log(totalSearchFilter);
     let toPush=[];
       totalSearchFilter.forEach((x) => {
         if(!toPush.includes(x) && x!==[]) {
@@ -70,7 +58,6 @@ function SearchBar({comics, setComicDisplay}) {
         }
       }
     }
-//    console.log(tempTitleArr)
     return(tempTitleArr);
   }
   return [];
@@ -87,7 +74,6 @@ function searchFilterAuthor(a){
         }
       }
     }
-   // console.log(tempAuthorArr)
     return(tempAuthorArr);
   }
   return [];
@@ -103,7 +89,6 @@ function searchFilterIllustrator(i){
         }
       }
     }
-   // console.log(tempIllustratorArr)
     return(tempIllustratorArr);
   }
   return [];
@@ -120,7 +105,6 @@ function searchFilterProtagonist(i){
         }
       }
     }
-   // console.log(tempProtagonistArr)
     return(tempProtagonistArr);
   }
   return [];
@@ -137,7 +121,6 @@ function searchFilterCompany(i){
         }
       }
     }
-   // console.log(tempCompanyArr)
     return(tempCompanyArr);
   }
   return [];

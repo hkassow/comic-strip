@@ -11,8 +11,3 @@ function Home ()  {
     )
 }
 export default Home
-//<Grid centered stretched >
-{/* <Button onClick={handleClick}>Open </Button>
-<ModalShort  open = {open} handleClick={handleClick} />
-
-</Grid>   */}

@@ -47,6 +47,3 @@ function NavBar ({onLogin, handleClick, user}) {
     )  
 }
 export default NavBar
-
-{/* <MenuItem> <LoginForm onLogin={onLogin} handleClick={handleToggle}/>
-                    </MenuItem> */}
