@@ -5,20 +5,17 @@ import { useState } from "react"
 function ReviewForm( { comic, user, handleUserReview } )  {
     const [star, setStar] = useState("");
     const [comment, setComment] = useState("");
-    const [userId, setUserId] = useState("")
-    const [comicId, setComicId] = useState("")
     const [review, setReview] = useState({})
 
     function handleSubmit(e) {
         e.preventDefault();
-        setComicId(comic.id)
-        setUserId(user.id)
-        setReview({
-            user_id: userId,
-            comic_id: comicId,
+        const review = {
+            comic_id: comic.id,
+            user_id: user.id,
             star: star,
             comment: comment
-        })
+        }
+    
         fetch("http://localhost:4000/reviews", {
             method: "POST",
         headers: {
