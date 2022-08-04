@@ -28,7 +28,7 @@ function App() {
   }, []);
   return (
     <>
-    <CreateAccountForm open={open} handleClick={handleClick}/>
+    <CreateAccountForm open={open} onLogin={setUser} handleClick={handleClick}/>
     <BrowserRouter>
       <NavBar user={user} onLogin={setUser} handleClick={handleClick}/>
       <Routes>

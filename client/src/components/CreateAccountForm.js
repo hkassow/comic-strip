@@ -3,7 +3,7 @@ import { Button, Form, Message } from 'semantic-ui-react'
 import './Modal.css';
 
 
-function CreateAccountForm({open, handleClick}) {
+function CreateAccountForm({open, handleClick, onLogin}) {
     const [anyErrors, setAnyErrors] = useState(false)
     const [errorMessages, setErrorMessages] = useState('')
     const [formData, setFormData] = useState({
@@ -29,6 +29,17 @@ function CreateAccountForm({open, handleClick}) {
             .then(res => {
                 if (res.ok) {
                     res.json()
+                    fetch("/login", {
+                        method: "POST",
+                        headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(user),
+                    })
+                    .then(r => r.json()).then(user => {
+                        handleClick()
+                        onLogin(user)}
+                        )
                 } else {
                     res.json().then(data => setErrorMessages(data.errors[0]))
                     setAnyErrors(true)
