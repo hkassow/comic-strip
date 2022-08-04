@@ -5,7 +5,6 @@ import { useState } from "react"
 function ReviewForm( { comic, user, handleUserReview } )  {
     const [star, setStar] = useState("");
     const [comment, setComment] = useState("");
-    const [review, setReview] = useState({})
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -16,7 +15,7 @@ function ReviewForm( { comic, user, handleUserReview } )  {
             comment: comment
         }
     
-        fetch("http://localhost:4000/reviews", {
+        fetch("/reviews", {
             method: "POST",
         headers: {
             "Content-Type": "application/json",
