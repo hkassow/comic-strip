@@ -64,3 +64,19 @@ html, body, #app, #root, #app>div {
   position: relative;
   top: 10px;
 } 
+
+.comix-zone {
+  border: 5px solid white;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; 
+  object-position: 0 20%;
+
+}
+
+.nav-menu{
+  text-align: left;
+}

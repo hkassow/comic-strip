@@ -90,7 +90,7 @@ Comic.create(name: "All-Star Superman", author: "Grant Morrison", illustrator: "
 Comic.create(name: "Watchmen", author: "Alan Moore", illustrator: "Dave Gibbons", company: "DC Comics", protagonist: "The Watchmen", cover_illustration: "https://comicbookroundup.com/img/covers/w/watchmen/1_medium.jpg", release_year: 1985, ongoing: false, synopsis: "Featuring the first appearance of Rorschach, Ozymandias, Dr. Manhattan, Silk Spectre, Nite Owl, and the Comedian! When the Comedian dies, a series of events are set into motion that bring the world ever closer to a deadly threat no one saw coming.")
 
 puts "Creating Reviews..."
-40.times do
+500.times do
     Review.create(comment: Faker::Fantasy::Tolkien.poem, star: rand(5), user_id: User.all.ids.sample, comic_id: Comic.all.ids.sample)
 end
 
