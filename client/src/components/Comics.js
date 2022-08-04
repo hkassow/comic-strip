@@ -7,7 +7,7 @@ function Comics(){
     const [comics, setComics] = useState([])
     const [comicDisplay, setComicDisplay] = useState([])
     useEffect(() => {
-        fetch("http://localhost:4000/comics")
+        fetch("/comics")
           .then((response) => response.json())
           .then((data) => setComics(data));
     }, []);
@@ -37,11 +37,11 @@ function Comics(){
     //     }
     // }
 
-    console.log(comicDisplay)
-    console.log(comics)
+    // console.log(comicDisplay)
+    // console.log(comics)
     return (
         <>
-        <Segment style={{padding: 100, marginTop: "0px"}} textAlign='center' size='massive'>
+        <Segment style={{padding: 50, marginTop: "0px"}} textAlign='center' size='massive'>
             <SearchBar comics = {comics} setComicDisplay = {setComicDisplay}/>
         </Segment>
         <Container>
