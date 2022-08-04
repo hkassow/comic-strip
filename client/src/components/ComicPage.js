@@ -91,7 +91,7 @@ const ComicPage = ({user}) => {
                 </GridColumn>
                 <GridColumn>
                     <Segment inverted compact>
-                        {user? <></>: <div className="inner" floated="left" style={{"textAlign":"center", "position":"absolute", "width":"100%", "paddingLeft":0,"height":"100%", "top": "0px", "left":"0px"}}>
+                        {user? <></>: <div className="inner" floated="left" style={{"z-index": "100", "textAlign":"center", "position":"absolute", "width":"100%", "paddingLeft":0,"height":"100%", "top": "0px", "left":"0px"}}>
                             <Header textAlign="center" style={{"width":"100%"}}>LOGIN TO LEAVE A REVIEW</Header>
                         </div>}
                     {userReview? 
