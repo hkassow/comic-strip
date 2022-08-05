@@ -15,7 +15,7 @@ function Comics(){
     return (
         <>
         <Sticky>
-        <Segment style={{padding: 50, marginTop: "0px"}} textAlign='center' size='massive'>
+        <Segment textAlign='center' size='massive'>
             <SearchBar comics = {comics} setComicDisplay = {setComicDisplay}/>
         </Segment>
         </Sticky>
