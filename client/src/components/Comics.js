@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Segment, Card, Container } from "semantic-ui-react";
+import { Segment, Card, Container, Sticky } from "semantic-ui-react";
 import ComicCard from "./ComicCard";
 import SearchBar from "./SearchBar";
 
@@ -12,17 +12,13 @@ function Comics(){
           .then((data) => setComics(data));
     }, []);
 
-
-    function displayComics() {
-        const slicedComics = comics.slice(0, 12)
-        return slicedComics.map((comic) => <ComicCard comic={comic} />)
-    }
-
     return (
         <>
+        <Sticky>
         <Segment style={{padding: 50, marginTop: "0px"}} textAlign='center' size='massive'>
             <SearchBar comics = {comics} setComicDisplay = {setComicDisplay}/>
         </Segment>
+        </Sticky>
         <Container>
             <Card.Group itemsPerRow={4}>
                 {comicDisplay.length === 0  ? 
