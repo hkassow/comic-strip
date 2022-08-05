@@ -19,6 +19,7 @@ const ComicPage = ({user}) => {
     const [editReview, setEditReview] = useState(false)
     const [starAmount, setStarAmount] = useState("")
     const [editComment, setEditComment] = useState('')
+    const [readlist, setReadlist] = useState(false)
     const comic = useLocation().state
     const handleUserReview = (review) => {
         setUserReview(review)
@@ -66,7 +67,7 @@ const ComicPage = ({user}) => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(watch)
-        }).then(r => r.json()).then(d => console.log(d))
+        }).then(r => r.json()).then(d => setReadlist(d))
     }
     useEffect(() => {
         if (user && comic) {
@@ -82,6 +83,22 @@ const ComicPage = ({user}) => {
                 }})
         }
     },[user])
+
+
+    useEffect(() => {
+        if (user && comic) {
+            fetch(`/watchlists?comic_id=${comic.id}&user_id=${user.id}`)
+            .then(r => {
+                if (r.ok) {
+                    r.json().then(watchlist => {
+                        setReadlist(watchlist)
+                    })
+                } else {
+                    console.log('no readlist')
+                }})
+        }
+    },[user])
+
     return (
         <>
         <Grid celled columns={3} stretched style={{"padding": "50px", "textAlign":"center"}}>
@@ -103,7 +120,9 @@ const ComicPage = ({user}) => {
                         {user? <></>: <div className="inner" floated="left" style={{"z-index": "1", "textAlign":"center", "position":"absolute", "width":"100%", "paddingLeft":0,"height":"100%", "top": "0px", "left":"0px"}}>
                             <Header textAlign="center" style={{"width":"100%"}}>LOGIN TO LEAVE A REVIEW</Header>
                         </div>}
-                        <Button style={{"margin":"5px"}} fluid onClick={handleReadListClick}>add to read  list?</Button>
+                        {readlist? 
+                            <Button style={{"margin":"5px"}} fluid >in readlist</Button> 
+                            : <Button style={{"margin":"5px"}} fluid onClick={handleReadListClick}>add to read  list?</Button>}
                     {userReview? 
                     <>
                         <Input fluid disabled={!editReview} placeholder={userReview.comment} onChange={(e) => setEditComment(e.target.value)}></Input>
