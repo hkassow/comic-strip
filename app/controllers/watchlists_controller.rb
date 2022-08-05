@@ -18,14 +18,22 @@ class WatchlistsController < ApplicationController
   # end
   # GET /watchlists
   def index
-    if params[:user_id]
-      watchlist = Watchlist.where(user_id: params[:user_id])
+    if params[:user_id] && params[:comic_id]
+      watchlists = Watchlist.where(user_id: params[:user_id])
+      watchlist = watchlists.find_by(comic_id: params[:comic_id])
       if (watchlist == nil)
         render json: 'no watchlist'
       else
         render json: watchlist, serializer: WatchlistSerializer
       end
-    else 
+    elsif params[:user_id]
+      watchlist = Watchlist.where(user_id: params[:user_id])
+      if (watchlist == nil)
+        render json: 'no watchlist'
+      else
+        render json: watchlist, serializer: WatchlistSerializer
+      end  
+    else
     @watchlists = Watchlist.all
 
     render json: @watchlists
