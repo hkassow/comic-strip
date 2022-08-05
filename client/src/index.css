@@ -80,3 +80,8 @@ html, body, #app, #root, #app>div {
 .nav-menu{
   text-align: left;
 }
+
+.pleasestick {
+  position: sticky;
+  top: 0;
+}
